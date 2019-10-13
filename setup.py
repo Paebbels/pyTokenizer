@@ -51,7 +51,7 @@ rtd_url =     "https://" + projectName + ".readthedocs.io/en/latest/"
 
 setuptools.setup(
 	name=projectName,
-	version="1.1.0",
+	version="1.1.1",
 
 	author="Patrick Lehmann",
 	author_email="Paebbels@gmail.com",
@@ -83,7 +83,7 @@ setuptools.setup(
 		"Intended Audience :: Developers",
 		"Topic :: Utilities"
 	],
-	keywords="Python3 Path Generic-Library",
+	keywords="Python3 Token Tokenizer Streaming",
 
 	python_requires='>=3.5',
 	install_requires=requirements,
