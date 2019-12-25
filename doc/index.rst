@@ -1,30 +1,47 @@
+.. code-block::
+
+                 _____     _              _
+      _ __  _   |_   _|__ | | _____ _ __ (_)_______ _ __
+     | '_ \| | | || |/ _ \| |/ / _ \ '_ \| |_  / _ \ '__|
+     | |_) | |_| || | (_) |   <  __/ | | | |/ /  __/ |
+     | .__/ \__, ||_|\___/|_|\_\___|_| |_|_/___\___|_|
+     |_|    |___/
+
 pyTokenizer Documentation
 #########################
 
 A streaming tokenizer.
+
+
+
+Introduction
+************
 
 .. note::
 
    Write documentation
 
 
-Installation/Updates
-********************
 
-Installation using PIP
-======================
+Example
+*******
 
-.. code-block:: bash
+.. note::
 
-   pip3 install pyTokenizer
+   Write documentation
 
 
-Updating using PIP
-==================
 
-.. code-block:: bash
+Contributors
+************
 
-   pip3 install -U pyTokenizer
+* `Patrick Lehmann <https://github.com/Paebbels>`_ (Maintainer)
+
+
+License
+*******
+
+This library is licensed under **Apache License 2.0**.
 
 ------------------------------------
 
@@ -34,23 +51,29 @@ Updating using PIP
 
    This document was generated on |docdate|.
 
-.. #
-   toctree::
-   :caption: Domain Specific Paths
+.. toctree::
+   :caption: Overview
    :hidden:
 
-   URL
+   Installation
+   Dependencies
 
 .. toctree::
    :caption: Classes
    :hidden:
 
-   pyTokenizer
+   Tokenizer
+   Tokens
+   Exceptions
+   Auxiliary
 
 
 .. toctree::
    :caption: Appendix
    :hidden:
 
+   License
    genindex
+
+.. #
    py-modindex

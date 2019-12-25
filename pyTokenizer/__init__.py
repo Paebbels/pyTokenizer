@@ -71,12 +71,17 @@ class GreedyMatchingParserResult(MatchingParserResult):   pass
 
 
 class SourceCodePosition:
-	def __init__(self, row, column, absolute):
+	Row       : int = None    #: Row or line in the document
+	Column    : int = None    #: Column in the document
+	Absolute  : int = None    #: Absolute character position (file offset) since document start.
+
+	def __init__(self, row : int, column : int, absolute : int):
 		self.Row =       row
 		self.Column =    column
 		self.Absolute =  absolute
 
 	def __str__(self):
+		"""Returns a string representation."""
 		return "(line: {0}, col: {1})".format(self.Row, self.Column)
 
 
@@ -196,6 +201,7 @@ class StringToken(ValuedToken):
 
 class Tokenizer:
 	class TokenKind(Enum):
+		"""Enumeration of token kinds."""
 		SpaceChars =      0
 		AlphaChars =      1
 		NumberChars =     2
@@ -217,9 +223,9 @@ class Tokenizer:
 				column =  0
 				row +=    1
 
-	__ALPHA_CHARS__ = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-	__NUMBER_CHARS__ = "0123456789"
-	__SPACE_CHARS__ = " \t"
+	__ALPHA_CHARS__ =   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"  #: Definition of word characters
+	__NUMBER_CHARS__ =  "0123456789"                                            #: Definition of digit characters
+	__SPACE_CHARS__ =   " \t"                                                   #: Definition of whitespace characters
 
 	@classmethod
 	def GetWordTokenizer(cls, iterable, alphaCharacters=__ALPHA_CHARS__, numberCharacters=__NUMBER_CHARS__, whiteSpaceCharacters=__SPACE_CHARS__):
