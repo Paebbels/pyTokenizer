@@ -8,6 +8,11 @@ Token
 
 This class implements the base-class for all token classes.
 
+.. rubric:: Inheritance diagram:
+
+.. inheritance-diagram:: pyTokenizer.SuperToken pyTokenizer.ValuedToken pyTokenizer.StartOfDocumentToken pyTokenizer.CharacterToken pyTokenizer.SpaceToken pyTokenizer.DelimiterToken pyTokenizer.NumberToken pyTokenizer.StringToken
+   :parts: 1
+
 .. autoclass:: pyTokenizer.Token
    :show-inheritance:
    :members:

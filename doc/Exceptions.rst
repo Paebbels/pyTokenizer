@@ -50,8 +50,3 @@ GreedyMatchingParserResult
    :show-inheritance:
    :members:
    :private-members:
-
-
-	'SourceCodePosition',
-
-
