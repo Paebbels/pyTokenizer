@@ -19,7 +19,7 @@
 #
 # License:
 # ============================================================================
-# Copyright 2017-2019 Patrick Lehmann - Bötzingen, Germany
+# Copyright 2017-2020 Patrick Lehmann - Bötzingen, Germany
 # Copyright 2007-2016 Patrick Lehmann - Dresden, Germany
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,7 +62,7 @@ __all__ = __api__
 
 
 class ParserException(Exception):
-	pass
+	"""Base exception for all exceptions created by the Tokenizer."""
 
 class MismatchingParserResult(StopIteration):             pass
 class EmptyChoiseParserResult(MismatchingParserResult):   pass
@@ -71,6 +71,13 @@ class GreedyMatchingParserResult(MatchingParserResult):   pass
 
 
 class SourceCodePosition:
+	"""
+	Represents a position in a source code file.
+
+	The class offers a linear position: `Absolute` in bytes from document or
+	snippet start and a ragged 2 dimensional `Row`:`Column` position.
+	"""
+
 	Row       : int = None    #: Row or line in the document
 	Column    : int = None    #: Column in the document
 	Absolute  : int = None    #: Absolute character position (file offset) since document start.
@@ -83,6 +90,10 @@ class SourceCodePosition:
 	def __str__(self):
 		"""Returns a string representation."""
 		return "(line: {0}, col: {1})".format(self.Row, self.Column)
+
+	def __repr__(self):
+		"""Returns a string representation in `row:col` format."""
+		return "{0}:{1})".format(self.Row, self.Column)
 
 
 class Token:
@@ -118,6 +129,7 @@ class Token:
 	def __str__(self):
 		return repr(self) + " at " + str(self.Start)
 
+
 class SuperToken(Token):
 	def __init__(self, startToken, endToken=None):
 		super().__init__(startToken.PreviousToken, startToken.Start, endToken.End if endToken else None)
@@ -130,6 +142,7 @@ class SuperToken(Token):
 			yield token
 			token = token.NextToken
 		yield self.EndToken
+
 
 class ValuedToken(Token):
 	def __init__(self, previousToken, value, start, end=None):
