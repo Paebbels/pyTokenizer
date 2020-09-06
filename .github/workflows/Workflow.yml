@@ -29,13 +29,11 @@ jobs:
 
       - name: Run unit tests
         run: |
-          python -m unittest tests.unit.Attributes
-          python -m unittest tests.unit.ArgParse
+          python -m unittest tests.unit.Token
 
       - name: Collect coverage
         run: |
-          coverage run --append -m unittest tests.unit.Attributes
-          coverage run --append -m unittest tests.unit.ArgParse
+          coverage run --append -m unittest tests.unit.Token
 
       - name: Report coverage
         run: |
