@@ -2,8 +2,21 @@
 __pycache__/
 *.py[cod]
 
-# Sphinx documentation
-doc/_build
+# Python installation packages
+dist/
 
-# PyCharm project
+# Coverage.py
+.coverage
+.cov
+coverage.xml
+
+# Sphinx
+doc/_build/
+doc/pyVHDLModel/**/*.*
+!doc/pyVHDLModel/index.rst
+
+# BuildTheDocs
+doc/_theme/**/*.*
+
+# IntelliJ project files
 /.idea/workspace.xml
