@@ -39,43 +39,40 @@
 #
 from enum import Enum
 
+from pydecor import export
 
-__api__ = [
-	'ParserException',
-	'MismatchingParserResult',
-	'EmptyChoiseParserResult',
-	'MatchingParserResult',
-	'GreedyMatchingParserResult',
-	'SourceCodePosition',
-	'Token',
-	'SuperToken',
-	'ValuedToken',
-	'StartOfDocumentToken',
-	'CharacterToken',
-	'SpaceToken',
-	'DelimiterToken',
-	'NumberToken',
-	'StringToken',
-	'Tokenizer'
-]
-__all__ = __api__
+__api__ = []
+# __all__ = __api__
 
 
+@export
 class ParserException(Exception):
 	"""Base exception for all exceptions created by the Tokenizer."""
 
-class MismatchingParserResult(StopIteration):             pass
-class EmptyChoiseParserResult(MismatchingParserResult):   pass
-class MatchingParserResult(StopIteration):                pass
-class GreedyMatchingParserResult(MatchingParserResult):   pass
+@export
+class MismatchingParserResult(StopIteration):
+	pass
+
+@export
+class EmptyChoiseParserResult(MismatchingParserResult):
+	pass
+
+@export
+class MatchingParserResult(StopIteration):
+	pass
+
+@export
+class GreedyMatchingParserResult(MatchingParserResult):
+	pass
 
 
+@export
 class SourceCodePosition:
 	"""
 	Represents a position in a source code file.
 
-	The class offers a linear position: `Absolute` in bytes from document or
-	snippet start and a ragged 2 dimensional `Row`:`Column` position.
+	The class offers a linear position: ``Absolute`` in bytes from document or
+	snippet start and a ragged 2 dimensional `Row```Column`` position.
 	"""
 
 	Row       : int = None    #: Row or line in the document
@@ -96,6 +93,7 @@ class SourceCodePosition:
 		return "{0}:{1})".format(self.Row, self.Column)
 
 
+@export
 class Token:
 	def __init__(self, previousToken, start, end=None):
 		previousToken.NextToken = self
@@ -130,6 +128,7 @@ class Token:
 		return repr(self) + " at " + str(self.Start)
 
 
+@export
 class SuperToken(Token):
 	def __init__(self, startToken, endToken=None):
 		super().__init__(startToken.PreviousToken, startToken.Start, endToken.End if endToken else None)
@@ -144,12 +143,14 @@ class SuperToken(Token):
 		yield self.EndToken
 
 
+@export
 class ValuedToken(Token):
 	def __init__(self, previousToken, value, start, end=None):
 		super().__init__(previousToken, start, end)
 		self.Value =  value
 
 
+@export
 class StartOfDocumentToken(ValuedToken):
 	def __init__(self):
 		self._previousToken =     None
@@ -165,6 +166,7 @@ class StartOfDocumentToken(ValuedToken):
 		return "<StartOfDocumentToken>"
 
 
+@export
 class CharacterToken(ValuedToken):
 	def __init__(self, previousToken, value, start):
 		if (len(value) != 1):    raise ValueError()
@@ -191,27 +193,32 @@ class CharacterToken(ValuedToken):
 			return self.Value
 
 
+@export
 class SpaceToken(ValuedToken):
 	def __str__(self):
 		return "<SpaceToken '{value}' at {line}:{col}>".format(
 						value=self.Value, pos=self.Start.Absolute, line=self.Start.Row, col=self.Start.Column)
 
 
+@export
 class DelimiterToken(ValuedToken):
 	def __str__(self):
 		return "<DelimiterToken '{value}' at {line}:{col}>".format(
 						value=self.Value, pos=self.Start.Absolute, line=self.Start.Row, col=self.Start.Column)
 
+@export
 class NumberToken(ValuedToken):
 	def __str__(self):
 		return "<NumberToken '{value}' at {line}:{col}>".format(
 						value=self.Value, pos=self.Start.Absolute, line=self.Start.Row, col=self.Start.Column)
 
+@export
 class StringToken(ValuedToken):
 	def __str__(self):
 		return "<StringToken '{value}' at {line}:{col}>".format(
 						value=self.Value, pos=self.Start.Absolute, line=self.Start.Row, col=self.Start.Column)
 
+@export
 class Tokenizer:
 	class TokenKind(Enum):
 		"""Enumeration of token kinds."""
