@@ -19,7 +19,7 @@
 #
 # License:
 # ============================================================================
-# Copyright 2017-2020 Patrick Lehmann - Bötzingen, Germany
+# Copyright 2017-2021 Patrick Lehmann - Bötzingen, Germany
 # Copyright 2007-2016 Patrick Lehmann - Dresden, Germany
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -37,6 +37,13 @@
 # SPDX-License-Identifier: Apache-2.0
 # ============================================================================
 #
+"""
+pyTokenizer
+###########
+
+:copyright: Copyright 2007-2021 Patrick Lehmann - Bötzingen, Germany
+:license: Apache License, Version 2.0
+"""
 from enum import Enum
 
 from pydecor import export
