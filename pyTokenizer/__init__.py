@@ -1,6 +1,3 @@
-# EMACS settings: -*- tab-width: 2; indent-tabs-mode: t -*-
-# vim: tabstop=2:shiftwidth=2:noexpandtab
-# kate: tab-width 2; replace-tabs off; indent-width 2;
 # =============================================================================
 #              _____     _              _
 #   _ __  _   |_   _|__ | | _____ _ __ (_)_______ _ __
@@ -9,9 +6,9 @@
 #  | .__/ \__, ||_|\___/|_|\_\___|_| |_|_/___\___|_|
 #  |_|    |___/
 # =============================================================================
-# Authors:						Patrick Lehmann
+# Authors:            Patrick Lehmann
 #
-# Python package:	    A streaming tokenizer.
+# Python package:     A streaming tokenizer.
 #
 # Description:
 # ------------------------------------
