@@ -45,7 +45,7 @@ This library is licensed under **Apache License 2.0**.
 
 ------------------------------------
 
-.. |docdate| date:: %b %d, %Y - %H:%M
+.. |docdate| date:: %d.%b %Y - %H:%M
 
 .. only:: html
 
@@ -56,7 +56,7 @@ This library is licensed under **Apache License 2.0**.
    :hidden:
 
    Installation
-   Dependencies
+   Dependency
 
 .. toctree::
    :caption: Classes
